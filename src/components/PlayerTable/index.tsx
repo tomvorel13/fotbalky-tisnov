@@ -25,7 +25,7 @@ export function PlayerTable() {
 				onClick={() => {
 					toggleRow(item.id)
 				}}
-				className={cx({ [classes.rowSelected]: selected })}
+				className={cx({ [classes.rowSelected]: selected }, classes.row)}
 			>
 				<Table.Td>
 					<Checkbox checked={selected} />
