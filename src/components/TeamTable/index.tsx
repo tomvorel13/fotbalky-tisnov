@@ -1,11 +1,13 @@
-import { Table } from '@mantine/core'
+import { Table, Text } from '@mantine/core'
 import classes from './TeamTable.module.css'
 import { Team } from '../../types'
 
 export function TeamTable({ team }: { team: Team }) {
 	const rows = team.players.map((player) => (
 		<Table.Tr key={player.name}>
-			<Table.Td>{player.name}</Table.Td>
+			<Table.Td>
+				<Text size='sm'>{player.name}</Text>
+			</Table.Td>
 		</Table.Tr>
 	))
 
