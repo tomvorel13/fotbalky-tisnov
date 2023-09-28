@@ -1,0 +1,10 @@
+@import './variables.scss';
+
+.container {
+	margin-top: $spacing-xl;
+	grid-column: 1 / 5;
+
+	@media screen and (min-width: $breakpoint-md) {
+		grid-column: 2 / 4;
+	}
+}
