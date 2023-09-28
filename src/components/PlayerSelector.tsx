@@ -1,7 +1,7 @@
 import { usePlayerStore } from '../stores'
 import PlayerSelectorControls from './PlayerSelectorControls'
 import Teams from './Teams'
-import styles from '../styles/player-selector.module.scss'
+import styles from '../styles/player-selector.module.css'
 import { PlayerTable } from './PlayerTable'
 
 function PlayerSelector() {

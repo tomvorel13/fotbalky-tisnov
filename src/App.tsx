@@ -1,6 +1,6 @@
 import { MantineProvider } from '@mantine/core'
 import PlayerSelector from './components/PlayerSelector'
-import styles from './styles/app.module.scss'
+import styles from './styles/app.module.css'
 import '@mantine/core/styles.css'
 
 function App() {

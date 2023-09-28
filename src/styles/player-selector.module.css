@@ -1,0 +1,8 @@
+.container {
+	margin-top: var(--spacing-xl);
+	grid-column: 1 / 5;
+
+	@media screen and (min-width: 768px) {
+		grid-column: 2 / 4;
+	}
+}

@@ -1,6 +1,6 @@
 import { usePlayerStore } from '../stores'
 import Btn from './Btn'
-import styles from '../styles/player-selector-controls.module.scss'
+import styles from '../styles/player-selector-controls.module.css'
 
 function PlayerSelectorControls() {
 	const reset = usePlayerStore((state) => state.reset)

@@ -1,7 +1,7 @@
 import cx from 'clsx'
 import { Table, Checkbox, ScrollArea, Group, Text, rem } from '@mantine/core'
 import { usePlayerStore } from '../../stores'
-import classes from './PlayerTable.module.scss'
+import classes from './PlayerTable.module.css'
 
 export function PlayerTable() {
 	const players = usePlayerStore((state) => state.players)
