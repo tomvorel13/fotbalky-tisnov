@@ -22,15 +22,13 @@ export function PlayerTable() {
 		return (
 			<Table.Tr
 				key={item.id}
+				onClick={() => {
+					toggleRow(item.id)
+				}}
 				className={cx({ [classes.rowSelected]: selected })}
 			>
 				<Table.Td>
-					<Checkbox
-						checked={selected}
-						onChange={() => {
-							toggleRow(item.id)
-						}}
-					/>
+					<Checkbox checked={selected} />
 				</Table.Td>
 				<Table.Td>
 					<Group gap='sm'>
