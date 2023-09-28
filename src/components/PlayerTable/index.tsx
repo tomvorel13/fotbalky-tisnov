@@ -43,7 +43,7 @@ export function PlayerTable() {
 
 	return (
 		<ScrollArea>
-			<Table miw={800} verticalSpacing='sm'>
+			<Table verticalSpacing='sm'>
 				<Table.Thead>
 					<Table.Tr>
 						<Table.Th style={{ width: rem(40) }}></Table.Th>
