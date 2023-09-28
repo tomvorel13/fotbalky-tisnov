@@ -13,7 +13,7 @@ export function TeamTable({ team }: { team: Team }) {
 		<Table className={classes.table}>
 			<Table.Thead className={classes.header}>
 				<Table.Tr>
-					<Table.Th>Name</Table.Th>
+					<Table.Th>Tým {team.id}</Table.Th>
 				</Table.Tr>
 			</Table.Thead>
 			<Table.Tbody>{rows}</Table.Tbody>
