@@ -105,4 +105,24 @@ export const players: Player[] = [
     id: 26,
     name: "Morgan",
   },
+  {
+    id: 27,
+    name: "Staňa",
+  },
+  {
+    id: 28,
+    name: "Živko",
+  },
+  {
+    id: 29,
+    name: "Pap",
+  },
+  {
+    id: 30,
+    name: "Kuba Panovský",
+  },
+  {
+    id: 31,
+    name: "David Zeman",
+  },
 ];
