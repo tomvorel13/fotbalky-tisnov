@@ -8,11 +8,15 @@ export const generateTwoTeamsFromPlayersArray = (players: Player[]): Team[] => {
   return [
     {
       id: 1,
-      players: teamOne,
+      players: sortPlayersByName(teamOne),
     },
     {
       id: 2,
-      players: teamTwo,
+      players: sortPlayersByName(teamTwo),
     },
   ];
+};
+
+export const sortPlayersByName = (players: Player[]): Player[] => {
+  return players.slice().sort((a, b) => a.name.localeCompare(b.name));
 };

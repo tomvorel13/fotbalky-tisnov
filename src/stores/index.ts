@@ -2,10 +2,13 @@ import { devtools } from "zustand/middleware";
 import { create } from "zustand";
 import { players } from "../data";
 import { Player, PlayerStore } from "../types";
-import { generateTwoTeamsFromPlayersArray } from "../lib/utils";
+import {
+  generateTwoTeamsFromPlayersArray,
+  sortPlayersByName,
+} from "../lib/utils";
 
 export const usePlayerStore = create<PlayerStore>()(devtools((set) => ({
-  players,
+  players: sortPlayersByName(players),
   selectedPlayers: [],
   teams: [],
   selectPlayer: (playerId: number) =>
