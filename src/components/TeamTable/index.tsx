@@ -1,4 +1,4 @@
-import { Table, Text } from '@mantine/core'
+import { ScrollArea, Table, Text } from '@mantine/core'
 import classes from './TeamTable.module.css'
 import { Team } from '../../types'
 
@@ -12,13 +12,15 @@ export function TeamTable({ team }: { team: Team }) {
 	))
 
 	return (
-		<Table className={classes.table}>
-			<Table.Thead className={classes.header}>
-				<Table.Tr>
-					<Table.Th>Tým {team.id}</Table.Th>
-				</Table.Tr>
-			</Table.Thead>
-			<Table.Tbody>{rows}</Table.Tbody>
-		</Table>
+		<ScrollArea>
+			<Table className={classes.table}>
+				<Table.Thead className={classes.header}>
+					<Table.Tr>
+						<Table.Th>Tým {team.id}</Table.Th>
+					</Table.Tr>
+				</Table.Thead>
+				<Table.Tbody>{rows}</Table.Tbody>
+			</Table>
+		</ScrollArea>
 	)
 }
