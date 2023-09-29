@@ -2,14 +2,15 @@ import cx from 'clsx'
 import { Table, Checkbox, ScrollArea, Group, Text, rem } from '@mantine/core'
 import { usePlayerStore } from '../../stores'
 import classes from './PlayerTable.module.css'
+import { sortPlayersByName } from '../../lib/utils'
+import { Player } from '../../types'
 
-export function PlayerTable() {
-	const players = usePlayerStore((state) => state.players)
+export function PlayerTable({ players }: { players: Player[] }) {
 	const selectPlayer = usePlayerStore((state) => state.selectPlayer)
 	const unselectPlayer = usePlayerStore((state) => state.unselectPlayer)
 	const selectedPlayers = usePlayerStore((state) => state.selectedPlayers)
 
-	const toggleRow = (id: number) => {
+	const toggleRow = (id: string) => {
 		if (selectedPlayers.find((player) => player.id === id)) {
 			unselectPlayer(id)
 		} else {
@@ -17,7 +18,7 @@ export function PlayerTable() {
 		}
 	}
 
-	const rows = players.map((item) => {
+	const rows = sortPlayersByName(players).map((item) => {
 		const selected = selectedPlayers.some((player) => player.id === item.id)
 		return (
 			<Table.Tr
@@ -28,12 +29,15 @@ export function PlayerTable() {
 				className={cx({ [classes.rowSelected]: selected }, classes.row)}
 			>
 				<Table.Td>
-					<Checkbox checked={selected} />
+					<Checkbox
+						checked={selected}
+						onChange={() => console.log('clicked')}
+					/>
 				</Table.Td>
 				<Table.Td>
 					<Group gap='sm'>
 						<Text size='sm' fw={500}>
-							{item.name}
+							{item.lastName} {item.firstName}
 						</Text>
 					</Group>
 				</Table.Td>

@@ -4,9 +4,11 @@ import { Team } from '../../types'
 
 export function TeamTable({ team }: { team: Team }) {
 	const rows = team.players.map((player) => (
-		<Table.Tr key={player.name}>
+		<Table.Tr key={player.lastName}>
 			<Table.Td>
-				<Text size='sm'>{player.name}</Text>
+				<Text size='sm'>
+					{player.lastName} {player.firstName}
+				</Text>
 			</Table.Td>
 		</Table.Tr>
 	))

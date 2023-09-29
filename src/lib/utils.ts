@@ -18,5 +18,5 @@ export const generateTwoTeamsFromPlayersArray = (players: Player[]): Team[] => {
 };
 
 export const sortPlayersByName = (players: Player[]): Player[] => {
-  return players.slice().sort((a, b) => a.name.localeCompare(b.name));
+  return players.slice().sort((a, b) => a.lastName.localeCompare(b.lastName));
 };
