@@ -10,10 +10,12 @@ export type Team = {
 };
 
 export type PlayerStore = {
-  setAllPlayers: (players: Player[]) => void;
   players: Player[];
   selectedPlayers: Player[] | [];
   teams: Team[] | [];
+  searchTerm: string;
+  setSearchTerm: (searchTerm: string) => void;
+  setAllPlayers: (players: Player[]) => void;
   selectPlayer: (playerId: string) => void;
   unselectPlayer: (playerId: string) => void;
   reset: () => void;

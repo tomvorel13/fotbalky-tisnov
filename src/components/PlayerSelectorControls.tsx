@@ -1,6 +1,6 @@
+import { Container, Flex, Text } from '@mantine/core'
 import { usePlayerStore } from '../stores'
 import Btn from './Btn'
-import styles from '../styles/player-selector-controls.module.css'
 
 function PlayerSelectorControls() {
 	const reset = usePlayerStore((state) => state.reset)
@@ -8,15 +8,17 @@ function PlayerSelectorControls() {
 	const selectedPlayers = usePlayerStore((state) => state.selectedPlayers)
 
 	return (
-		<div className={styles.container}>
-			<p>Počet vybraných hráčů: {selectedPlayers.length}</p>
-			{selectedPlayers.length > 0 && (
-				<div className={styles.btns}>
-					<Btn onClick={generateTeams}>Generuj</Btn>
-					<Btn onClick={reset}>Reset</Btn>
-				</div>
-			)}
-		</div>
+		<Container p={0} mb={10}>
+			<Flex justify='space-between' align='center'>
+				<Text>Počet vybraných hráčů: {selectedPlayers.length}</Text>
+				{selectedPlayers.length > 0 && (
+					<Flex gap={10}>
+						<Btn onClick={generateTeams}>Generuj</Btn>
+						<Btn onClick={reset}>Reset</Btn>
+					</Flex>
+				)}
+			</Flex>
+		</Container>
 	)
 }
 
