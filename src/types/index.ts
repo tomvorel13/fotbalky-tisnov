@@ -1,6 +1,7 @@
 export type Player = {
-  id: number;
-  name: string;
+  id: string;
+  firstName: string;
+  lastName: string;
 };
 
 export type Team = {
@@ -9,11 +10,12 @@ export type Team = {
 };
 
 export type PlayerStore = {
+  setAllPlayers: (players: Player[]) => void;
   players: Player[];
   selectedPlayers: Player[] | [];
   teams: Team[] | [];
-  selectPlayer: (playerId: number) => void;
-  unselectPlayer: (playerId: number) => void;
+  selectPlayer: (playerId: string) => void;
+  unselectPlayer: (playerId: string) => void;
   reset: () => void;
   generateTeams: () => void;
 };

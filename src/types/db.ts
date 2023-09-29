@@ -13,20 +13,20 @@ export interface Database {
         Row: {
           created_at: string
           id: string
-          jmeno: string | null
-          prijmeni: string | null
+          jmeno: string
+          prijmeni: string
         }
         Insert: {
           created_at?: string
           id?: string
-          jmeno?: string | null
-          prijmeni?: string | null
+          jmeno: string
+          prijmeni: string
         }
         Update: {
           created_at?: string
           id?: string
-          jmeno?: string | null
-          prijmeni?: string | null
+          jmeno?: string
+          prijmeni?: string
         }
         Relationships: []
       }
