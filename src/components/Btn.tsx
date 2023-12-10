@@ -1,4 +1,4 @@
-import { Button } from '@mantine/core'
+import { Button, Text } from '@mantine/core'
 
 function Btn({
 	onClick,
@@ -8,8 +8,8 @@ function Btn({
 	children: React.ReactNode
 }) {
 	return (
-		<Button variant='gradient' onClick={onClick}>
-			{children}
+		<Button p={5} variant='outline' onClick={onClick}>
+			<Text size='md'>{children}</Text>
 		</Button>
 	)
 }
