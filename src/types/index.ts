@@ -4,6 +4,7 @@ export type Player = {
 	lastName: string
 	rychlost: number
 	fotbalovost: number
+	bojovnost: number
 }
 
 export type Team = {

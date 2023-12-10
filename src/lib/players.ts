@@ -16,6 +16,7 @@ export async function getPlayers(): Promise<Player[]> {
 			lastName: player.prijmeni,
 			fotbalovost: player.fotbalovost,
 			rychlost: player.rychlost,
+			bojovnost: player.bojovnost,
 		}))
 
 	return players || []
