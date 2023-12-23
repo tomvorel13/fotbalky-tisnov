@@ -1,7 +1,0 @@
-.button {
-	padding: var(--spacing-xxs) var(--spacing-s);
-
-	&:hover {
-		cursor: pointer;
-	}
-}

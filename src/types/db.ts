@@ -11,31 +11,40 @@ export interface Database {
     Tables: {
       hraci: {
         Row: {
-          bojovnost: number
           created_at: string
-          fotbalovost: number
+          driblink: number
           id: string
           jmeno: string
+          nahravka: number
+          obrana: number
           prijmeni: string
           rychlost: number
+          sila: number
+          strelba: number
         }
         Insert: {
-          bojovnost?: number
           created_at?: string
-          fotbalovost?: number
+          driblink?: number
           id?: string
           jmeno: string
+          nahravka?: number
+          obrana?: number
           prijmeni: string
           rychlost?: number
+          sila?: number
+          strelba?: number
         }
         Update: {
-          bojovnost?: number
           created_at?: string
-          fotbalovost?: number
+          driblink?: number
           id?: string
           jmeno?: string
+          nahravka?: number
+          obrana?: number
           prijmeni?: string
           rychlost?: number
+          sila?: number
+          strelba?: number
         }
         Relationships: []
       }

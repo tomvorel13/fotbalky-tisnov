@@ -12,11 +12,14 @@ export async function getPlayers(): Promise<Player[]> {
 		data &&
 		data.map((player) => ({
 			id: player.id,
-			firstName: player.jmeno,
-			lastName: player.prijmeni,
-			fotbalovost: player.fotbalovost,
+			jmeno: player.jmeno,
+			prijmeni: player.prijmeni,
 			rychlost: player.rychlost,
-			bojovnost: player.bojovnost,
+			strelba: player.strelba,
+			nahravka: player.nahravka,
+			driblink: player.driblink,
+			obrana: player.obrana,
+			sila: player.sila,
 		}))
 
 	return players || []
