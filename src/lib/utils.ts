@@ -1,20 +1,15 @@
 import { Player, Team } from '../types'
 
 export const generateTwoTeamsFromPlayersArray = (players: Player[]): Team[] => {
-	// Define weights for each attribute
-	const WEIGHTS = { fotbalovost: 0.6, behavost: 0.3, bojovnost: 0.1 }
 	const RANDOM_FACTOR = 0.1 // Adjust this value to control the randomness
 
-	// Calculate weighted score for each player with a random factor
+	// Calculate score for each player with a random factor, using overall rating
 	const calculateScore = (player: Player) => {
-		const baseScore =
-			player.fotbalovost * WEIGHTS.fotbalovost +
-			player.behavost * WEIGHTS.behavost +
-			player.bojovnost * WEIGHTS.bojovnost
-		return baseScore + (Math.random() - 0.5) * RANDOM_FACTOR
+		// The overall rating is adjusted with a random factor
+		return player.overall + (Math.random() - 0.5) * RANDOM_FACTOR * 100
 	}
 
-	// Sort players by score
+	// Sort players by adjusted score
 	players.sort((a, b) => calculateScore(b) - calculateScore(a))
 
 	// Distribute players into teams
@@ -24,12 +19,13 @@ export const generateTwoTeamsFromPlayersArray = (players: Player[]): Team[] => {
 	let teamTwoScore = 0
 
 	players.forEach((player) => {
+		const playerScore = calculateScore(player)
 		if (teamOneScore <= teamTwoScore) {
 			teamOne.push(player)
-			teamOneScore += calculateScore(player)
+			teamOneScore += playerScore
 		} else {
 			teamTwo.push(player)
-			teamTwoScore += calculateScore(player)
+			teamTwoScore += playerScore
 		}
 	})
 
@@ -37,11 +33,11 @@ export const generateTwoTeamsFromPlayersArray = (players: Player[]): Team[] => {
 	return [
 		{
 			id: 1,
-			players: sortPlayersByName(teamOne),
+			players: sortPlayersByRating(teamOne),
 		},
 		{
 			id: 2,
-			players: sortPlayersByName(teamTwo),
+			players: sortPlayersByRating(teamTwo),
 		},
 	]
 }
@@ -50,6 +46,12 @@ export const sortPlayersByName = (players: Player[]): Player[] => {
 	return players
 		.slice()
 		.sort((a, b) => a.lastName.toLocaleLowerCase().localeCompare(b.lastName))
+}
+
+export const sortPlayersByRating = (players: Player[]): Player[] => {
+	return players
+		.slice() // Create a shallow copy of the array to avoid mutating the original array
+		.sort((a, b) => b.overall - a.overall) // Sort players by overallRating in descending order
 }
 
 export const calculateOverallRating = (player: Player): number => {
