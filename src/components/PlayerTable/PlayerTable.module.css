@@ -7,3 +7,16 @@
 		cursor: pointer;
 	}
 }
+
+.name_row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: 24px;
+}
+
+.rating {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}

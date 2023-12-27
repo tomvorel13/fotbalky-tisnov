@@ -12,6 +12,8 @@ function PlayerSelector() {
 	const setAllPlayers = usePlayerStore((state) => state.setAllPlayers)
 	const players = usePlayerStore((state) => state.players)
 
+	console.log(players, 'pl')
+
 	const { data, isLoading } = useQuery({
 		queryKey: ['players'],
 		queryFn: getPlayers,

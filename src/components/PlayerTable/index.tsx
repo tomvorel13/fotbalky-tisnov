@@ -1,8 +1,9 @@
 import cx from 'clsx'
-import { Table, Checkbox, ScrollArea, Text, Box } from '@mantine/core'
+import { Badge, Table, Checkbox, ScrollArea, Text, Box } from '@mantine/core'
+import { Rating } from '@mantine/core'
 import { usePlayerStore } from '../../stores'
 import classes from './PlayerTable.module.css'
-import { sortPlayersByName } from '../../lib/utils'
+import { sortPlayersByName, transformRating } from '../../lib/utils'
 import { Player } from '../../types'
 import { SearchBox } from '../SearchBox'
 
@@ -44,7 +45,15 @@ export function PlayerTable({ players }: { players: Player[] }) {
 				</Table.Td>
 				<Table.Td>
 					<Text size='sm' fw={500}>
-						{item.lastName} {item.firstName}
+						<div className={classes.name_row}>
+							{item.lastName} {item.firstName}{' '}
+							<div className={classes.rating}>
+								<Badge color='teal' size='md'>
+									{item.overall}
+								</Badge>
+								<Rating value={transformRating(item.overall)} fractions={2} />
+							</div>
+						</div>
 					</Text>
 				</Table.Td>
 			</Table.Tr>

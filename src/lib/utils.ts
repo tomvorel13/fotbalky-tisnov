@@ -51,3 +51,27 @@ export const sortPlayersByName = (players: Player[]): Player[] => {
 		.slice()
 		.sort((a, b) => a.lastName.toLocaleLowerCase().localeCompare(b.lastName))
 }
+
+export const calculateOverallRating = (player: Player): number => {
+	const WEIGHTS = { fotbalovost: 0.6, behavost: 0.3, bojovnost: 0.1 }
+
+	// Calculate weighted average
+	const weightedAverage =
+		player.fotbalovost * WEIGHTS.fotbalovost +
+		player.behavost * WEIGHTS.behavost +
+		player.bojovnost * WEIGHTS.bojovnost
+
+	// Scale the weighted average from a 1-10 scale to a 1-100 scale
+	const scaledRating = weightedAverage * 10
+
+	// Round the result to the nearest whole number
+	return Math.round(scaledRating)
+}
+
+export const transformRating = (overallRating: number) => {
+	// Convert the rating from a 1-100 scale to a 1-5 scale
+	const scaledRating = (overallRating / 100) * 5
+
+	// Round to the nearest half
+	return Math.round(scaledRating * 2) / 2
+}

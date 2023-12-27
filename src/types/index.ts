@@ -5,6 +5,7 @@ export type Player = {
 	behavost: number
 	fotbalovost: number
 	bojovnost: number
+	overall: number
 }
 
 export type Team = {
