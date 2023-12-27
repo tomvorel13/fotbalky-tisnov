@@ -67,7 +67,7 @@ export const calculateOverallRating = (player: Player): number => {
 	const scaledRating = weightedAverage * 10
 
 	// Round the result to the nearest whole number
-	return Math.round(scaledRating)
+	return Math.round(scaledRating) >= 100 ? 100 : Math.round(scaledRating)
 }
 
 export const transformRating = (overallRating: number) => {
