@@ -2,7 +2,7 @@ export type Player = {
 	id: string
 	firstName: string
 	lastName: string
-	rychlost: number
+	behavost: number
 	fotbalovost: number
 	bojovnost: number
 }

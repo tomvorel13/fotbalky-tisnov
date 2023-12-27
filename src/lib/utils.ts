@@ -2,14 +2,14 @@ import { Player, Team } from '../types'
 
 export const generateTwoTeamsFromPlayersArray = (players: Player[]): Team[] => {
 	// Define weights for each attribute
-	const WEIGHTS = { fotbalovost: 0.6, rychlost: 0.3, bojovnost: 0.1 }
+	const WEIGHTS = { fotbalovost: 0.6, behavost: 0.3, bojovnost: 0.1 }
 	const RANDOM_FACTOR = 0.1 // Adjust this value to control the randomness
 
 	// Calculate weighted score for each player with a random factor
 	const calculateScore = (player: Player) => {
 		const baseScore =
 			player.fotbalovost * WEIGHTS.fotbalovost +
-			player.rychlost * WEIGHTS.rychlost +
+			player.behavost * WEIGHTS.behavost +
 			player.bojovnost * WEIGHTS.bojovnost
 		return baseScore + (Math.random() - 0.5) * RANDOM_FACTOR
 	}
